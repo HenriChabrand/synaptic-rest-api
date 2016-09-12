@@ -62,7 +62,7 @@ app.post('/api/v1', function(req, res) {
   
   // test the network
   
-  res.send(myNetwork.activate([1,1,0,0,0,1,0,1,1,1,0,0,0,0,0,1,0,0,1]));
+  res.send(myNetwork.activate([1,1,1,1,1,1,0,1,1,1,0,0,0,0,0,1,0,0,1]));
 });
 
 // start the server
