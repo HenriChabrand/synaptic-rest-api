@@ -46,7 +46,9 @@ app.post('/api/v1', function(req, res) {
   // test the network
   
   //res.send(myNetwork.activate([100,101,102]));
-   res.send((12423).toString(2).split(''));                    
+  var myArray = (12423).toString(2).split('').split("");
+  for(var i=0; i<myArray.length; i++) { myArray[i] = parseInt(myArray[i], 10); } 
+   res.send(myArray);                    
 });
 
 // start the server
