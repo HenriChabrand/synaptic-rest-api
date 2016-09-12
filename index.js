@@ -21,15 +21,19 @@ app.post('/api/v1', function(req, res) {
   
   // create the network
   var inputLayer = new Layer(19);
-  var hiddenLayer = new Layer(10);
+  var hiddenLayerA = new Layer(10);
+  var hiddenLayerB = new Layer(3);
+  var hiddenLayerC = new Layer(10);
   var outputLayer = new Layer(19);
   
-  inputLayer.project(hiddenLayer);
-  hiddenLayer.project(outputLayer);
+  inputLayer.project(hiddenLayerA);
+  hiddenLayerA.project(hiddenLayerB);
+  hiddenLayerB.project(hiddenLayerC);
+  hiddenLayerC.project(outputLayer);
   
   var myNetwork = new Network({
       input: inputLayer,
-      hidden: [hiddenLayer],
+      hidden: [hiddenLayerA, hiddenLayerB, hiddenLayerC],
       output: outputLayer
   });
   
