@@ -25,7 +25,7 @@ app.post('/api/v1', function(req, res) {
   var outputLayer = new Layer(19);
   
   inputLayer.project(hiddenLayer);
-  hiddenLayerC.project(outputLayer);
+  hiddenLayer.project(outputLayer);
   
   var myNetwork = new Network({
       input: inputLayer,
