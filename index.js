@@ -21,8 +21,8 @@ app.post('/api/v1', function(req, res) {
   
   // create the network
   var inputLayer = new Layer(19);
-  var hiddenLayer = new Layer(1);
-  var outputLayer = new Layer(19);
+  var hiddenLayer = new Layer(5);
+  var outputLayer = new Layer(1);
   
   inputLayer.project(hiddenLayer);
   hiddenLayer.project(outputLayer);
@@ -51,7 +51,12 @@ app.post('/api/v1', function(req, res) {
 	}
 	
       myNetwork.activate(allArray[0]);
-      myNetwork.propagate(learningRate, allArray[1]);
+      if((i % 2)==0){
+      	myNetwork.propagate(learningRate, [1]);
+      }else{
+      	myNetwork.propagate(learningRate, [0]);
+      }
+      
   }
   
   
