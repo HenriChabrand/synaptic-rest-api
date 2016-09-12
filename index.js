@@ -20,9 +20,9 @@ app.post('/api/v1', function(req, res) {
 	var json_step = req.body
   
   // create the network
-  var inputLayer = new Layer(14);
+  var inputLayer = new Layer(27);
   var hiddenLayer = new Layer(3);
-  var outputLayer = new Layer(14);
+  var outputLayer = new Layer(27);
   
   inputLayer.project(hiddenLayer);
   hiddenLayer.project(outputLayer);
@@ -35,14 +35,14 @@ app.post('/api/v1', function(req, res) {
   
   // train the network
   var learningRate = .3;
-  for (var i = 0; i < 10000; i++)
+  for (var i = 0; i < 100000000; i++)
   {
 	var allArray = [];
 	for(j=0; j<2; j++){
 	    var myArray = (i+j).toString(2).split('');
 	    for(var k=0; k<myArray.length; k++) { myArray[k] = parseInt(myArray[k], 10); } 
-	    if(myArray.length < 14){
-	      var missingZero = 14-myArray.length;
+	    if(myArray.length < 27){
+	      var missingZero = 27-myArray.length;
 	      for(k=0; k< missingZero; k++){
 	      myArray.unshift(0);
 	      }
@@ -57,7 +57,7 @@ app.post('/api/v1', function(req, res) {
   
   // test the network
   
-  res.send(myNetwork.activate([1,0,0,1,1,0,0,0,1,1,0,1,1,1]));
+  res.send(myNetwork.activate([1,0,0,0,0,1,0,1,1,0,0,0,0,0,1,1,1,0,1,1,0,0,0,0,0,0,0]));
 });
 
 // start the server
