@@ -20,9 +20,9 @@ app.post('/api/v1', function(req, res) {
 	var json_step = req.body
   
   // create the network
-  var inputLayer = new Layer(3);
+  var inputLayer = new Layer(4);
   var hiddenLayer = new Layer(3);
-  var outputLayer = new Layer(1);
+  var outputLayer = new Layer(4);
   
   inputLayer.project(hiddenLayer);
   hiddenLayer.project(outputLayer);
@@ -35,20 +35,29 @@ app.post('/api/v1', function(req, res) {
   
   // train the network
   var learningRate = .3;
-  for (var i = 0; i < 50000; i++)
+  for (var i = 0; i < 10; i++)
   {
-      // 0,0 => 0
-      myNetwork.activate([i/100000,(i+1)/100000,(i+2)/100000]);
-      myNetwork.propagate(learningRate, [(i+3)/100000]);
+	var allArray = [];
+	for(j=0; j<2; j++){
+	    var myArray = (i+j).toString(2).split('');
+	    for(var k=0; k<myArray.length; k++) { myArray[k] = parseInt(myArray[k], 10); } 
+	    if(myArray.length < 4){
+	      var missingZero = 4-myArray.length;
+	      for(k=0; k< missingZero; k++){
+	      myArray.unshift(0);
+	      }
+	    }
+	    allArray.push(myArray);
+	}
+	
+      myNetwork.activate(allArray[0]);
+      myNetwork.propagate(learningRate, allArray[1]);
   }
   
   
   // test the network
   
-  //res.send(myNetwork.activate([100,101,102]));
-  var myArray = (12423).toString(2).split('').split("");
-  for(var i=0; i<myArray.length; i++) { myArray[i] = parseInt(myArray[i], 10); } 
-   res.send(myArray);                    
+  res.send(myNetwork.activate([1,1,1,0]));
 });
 
 // start the server
