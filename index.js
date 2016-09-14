@@ -45,7 +45,7 @@ var trainingOptions = {
 
 myNet.trainer.train(trainingSet, trainingOptions);
   
-  res.send(myNetwork.activate([1,0,0,0.42,1,1,0,0,0,0]));
+  res.send(myNet.activate([1,0,0,0.42,1,1,0,0,0,0]));
 });
 
 // start the server
