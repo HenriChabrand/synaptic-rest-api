@@ -32,7 +32,7 @@ for (var i = 0; i < 200000; i++)
 
 }
   
-  res.send(myLSTM.activate([1/20000,2/20000,3/20000]));
+  res.send(myLSTM.activate([1234/20000,1235/20000,1236/20000]));
 });
 
 // start the server
