@@ -24,15 +24,15 @@ var myNet = new Architect.Perceptron(10, 7, 1);
 
 var trainingSet = [
   {
-    input: [0,0,1,0.12,0,0,0,0,1,1]
+    input: [0,0,1,0.12,0,0,0,0,1,1],
     output: [1]
   },
   {
-    input:  [0,1,0,0.045,0,0,1,1,0,0] 
+    input:  [0,1,0,0.045,0,0,1,1,0,0],
     output: [0]
   },
   {
-    input:  [1,0,0,0.42,1,1,0,0,0,0]
+    input:  [1,0,0,0.42,1,1,0,0,0,0],
     output: [1]
   }
 ]
@@ -40,7 +40,7 @@ var trainingSet = [
 var trainingOptions = {
   rate: .1,
   iterations: 20000,
-  error: .005,
+  error: .005
 }
 
 myNet.trainer.train(trainingSet, trainingOptions);
