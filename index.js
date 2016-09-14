@@ -23,7 +23,7 @@ app.post('/api/v1', function(req, res) {
 var myLSTM = new Architect.LSTM(3,6,1);
 
 // train the network
-var learningRate = .00001;
+var learningRate = .000001;
 for (var i = 0; i < 20000; i++)
 {
     
