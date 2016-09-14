@@ -38,9 +38,9 @@ var trainingSet = [
 ]
 
 var trainingOptions = {
-  rate: .1,
-  iterations: 20000,
-  error: .005
+  rate: .001,
+  iterations: 80000,
+  error: .00005
 }
 
 myNet.trainer.train(trainingSet, trainingOptions);
