@@ -27,7 +27,7 @@ var learningRate = .01;
 for (var i = 0; i < 20000; i++)
 {
     
-    myLSTM.activate([i/20000,(i+1)/20000,(i+2)/20000]
+    myLSTM.activate([i/20000,(i+1)/20000,(i+2)/20000]);
     myLSTM.propagate(learningRate, [(i+3)/20000]);
 
 }
