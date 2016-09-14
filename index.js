@@ -20,32 +20,19 @@ app.post('/api/v1', function(req, res) {
 	
 	var json_step = req.body
   
-var myNet = new Architect.Perceptron(10, 7, 1);
+var myLSTM = new Architect.LSTM(3,6,1);
 
-var trainingSet = [
-  {
-    input: [0,0,1,0.12,0,0,0,0,1,1],
-    output: [1]
-  },
-  {
-    input:  [0,1,0,0.045,0,0,1,1,0,0],
-    output: [0]
-  },
-  {
-    input:  [1,0,0,0.42,1,1,0,0,0,0],
-    output: [1]
-  }
-]
+// train the network
+var learningRate = .01;
+for (var i = 0; i < 20000; i++)
+{
+    
+    myLSTM.activate([i/20000,(i+1)/20000,(i+2)/20000]
+    myLSTM.propagate(learningRate, [(i+3)/20000]);
 
-var trainingOptions = {
-  rate: .001,
-  iterations: 80000,
-  error: .00005
 }
-
-myNet.trainer.train(trainingSet, trainingOptions);
   
-  res.send(myNet.activate([1,0,0,0.042,0,1,1,0,0,0]));
+  res.send(myLSTM.activate([1/20000,2/20000,3/20000]));
 });
 
 // start the server
