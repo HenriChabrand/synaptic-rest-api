@@ -27,6 +27,9 @@ app.use(bodyParser.json());
 app.post('/api/v1', function(req, res) {
 
 
+
+var input = req.body;
+
 /*
 var json_step = req.body;
   
@@ -45,7 +48,7 @@ for (var i = 0; i < 200000; i++)
 res.send(myLSTM.activate([1234/20000,1235/20000,1236/20000]));
   */
   
-  var input = [[0,1,2,3,4,5,6,7,8,9,10],5,2];
+
 algorithmia.client("sim9VjrH8Tq+hYi9cPvHEr6ACt71")
            .algo("algo://TimeSeries/Forecast/0.2.0")
            .pipe(input)
