@@ -11,10 +11,7 @@ var Layer = synaptic.Layer,
     
  */
  
- 
-var algorithmia = require("algorithmia");
-
-
+var Graph = require('node-all-paths')
  
 var app = express();
 var port = process.env.PORT || 8080;
@@ -30,31 +27,19 @@ app.post('/api/v1', function(req, res) {
 
 var input = req.body;
 
-/*
-var json_step = req.body;
-  
-var myLSTM = new Architect.LSTM(3,6,1);
 
-// train the network
-var learningRate = .00001;
-for (var i = 0; i < 200000; i++)
-{
-    
-    myLSTM.activate([i/20000,(i+1)/20000,(i+2)/20000]);
-    myLSTM.propagate(learningRate, [(i+3)/20000]);
+ 
+var graph = new Graph()
+ 
+graph.addNode('A', { B:1 })
+graph.addNode('B', { A:1, C:2, D: 4 })
+graph.addNode('C', { B:2, D:1 })
+graph.addNode('D', { C:1, B:4 })
+ 
+graph.path('A', 'D') // => [ 'A', 'B', 'C', 'D' ] 
 
-} 
 
-res.send(myLSTM.activate([1234/20000,1235/20000,1236/20000]));
-  */
-  
-
-algorithmia.client("sim9VjrH8Tq+hYi9cPvHEr6ACt71")
-           .algo("algo://TimeSeries/Forecast/0.2.0")
-           .pipe(input)
-           .then(function(response) {
-             res.send(response.get());
-           });
+             res.send("hello world");
  
 });
 
