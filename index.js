@@ -11,7 +11,7 @@ var Layer = synaptic.Layer,
     
  */
  
-var Graph = require('node-all-paths')
+var Graph = require('node-dijkstra')
  
 var app = express();
 var port = process.env.PORT || 8080;
@@ -28,18 +28,19 @@ app.post('/api/v1', function(req, res) {
 var input = req.body;
 
 
+
  
-var graph = new Graph()
+var route = new Graph()
  
-graph.addNode('A', { B:1 })
-graph.addNode('B', { A:1, C:2, D: 4 })
-graph.addNode('C', { B:2, D:1 })
-graph.addNode('D', { C:1, B:4 })
+route.addNode('A', { B:1 })
+route.addNode('B', { A:1, C:2, D: 4 })
+route.addNode('C', { B:2, D:1 })
+route.addNode('D', { C:1, B:4 })
  
-graph.path('A', 'D') // => [ 'A', 'B', 'C', 'D' ] 
+route.path('A', 'D') // => [ 'A', 'B', 'C', 'D' ] 
 
 
-             res.send("hello world");
+             res.send(route.path('A', 'D'));
  
 });
 
