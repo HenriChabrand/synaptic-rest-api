@@ -12,7 +12,7 @@
     "request": "^2.71.0",
     "synaptic" : "*",
     "algorithmia" : "*",
-    "node-all-paths" : "*"
+    "node-dijkstra" : "*"
   },
   "engines": {
     "node": "4.0.0"
