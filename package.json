@@ -12,7 +12,8 @@
     "request": "^2.71.0",
     "synaptic" : "*",
     "algorithmia" : "*",
-    "node-dijkstra" : "*"
+    "node-dijkstra" : "*",
+    "async-foreach":"*"
   },
   "engines": {
     "node": "6.6.0"
