@@ -30,10 +30,7 @@ var input = req.body;
 
 
  
-var route = new Graph({
-  'A': { 'B': 1 },
-  'B': { 'A': 1, 'C': 2, 'D': 4 }
-})
+var route = new Graph(input)
  
  
 route.path('A', 'D') // => [ 'A', 'B', 'C', 'D' ] 
