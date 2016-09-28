@@ -31,12 +31,10 @@ var input = req.body;
 
  
 var route = new Graph(input.path)
- 
- 
-route.path(input.start, input.end) // => [ 'A', 'B', 'C', 'D' ] 
 
 
-             res.send(route.path('A', 'D'));
+
+             res.send(route.path(input.start, input.end));
  
 });
 
