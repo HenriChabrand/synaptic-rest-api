@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const request = require('request');
-
+const forEach = require('async-foreach').forEach;
 
 /*const synaptic = require('synaptic');
 
@@ -33,6 +33,9 @@ var input = req.body;
 var route = new Graph(input.path)
 
 
+forEach(["a", "b", "c"], function(item, index, arr) {
+  console.log(item);
+});
 
              res.send(route.path(input.start, input.end));
  
