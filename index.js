@@ -30,10 +30,10 @@ var input = req.body;
 
 
  
-var route = new Graph(input)
+var route = new Graph(input.path)
  
  
-route.path('A', 'D') // => [ 'A', 'B', 'C', 'D' ] 
+route.path(input.start, input.end) // => [ 'A', 'B', 'C', 'D' ] 
 
 
              res.send(route.path('A', 'D'));
