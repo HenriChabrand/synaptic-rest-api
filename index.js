@@ -34,7 +34,7 @@ var route = new Graph(input.path)
 
 var result = [];
 forEach(input.start, function(item, index, arr) {
-  result[] = route.path(item, input.end)
+  result.push(route.path(item, input.end))
 });
 
              res.send(result);
