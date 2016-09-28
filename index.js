@@ -32,12 +32,12 @@ var input = req.body;
  
 var route = new Graph(input.path)
 
-
-forEach(["a", "b", "c"], function(item, index, arr) {
-  console.log(item);
+var result = [];
+forEach(input.start, function(item, index, arr) {
+  result[] = route.path(item, input.end)
 });
 
-             res.send(route.path(input.start, input.end));
+             res.send(result);
  
 });
 
